@@ -10,11 +10,7 @@
                 <a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Agregar</a>
             </div>
             <div class="card-body">
-                @if(session()->has('status'))
-                    <div class="alert alert-success">
-                        {{ session()->get('status') }}
-                    </div>
-                @endif
+                @include('backend.partials.status')
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered" id="datatable">
                         <thead>

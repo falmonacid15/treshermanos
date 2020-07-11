@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use App\Models\User;
+use App\Http\Requests\User\StoreRequest;
+use App\Http\Requests\User\UpdateRequest;
 
 class UserController extends Controller
 {
@@ -34,36 +36,56 @@ class UserController extends Controller
 
     public function create()
     {
-        //
+        return view('backend.sections.users.create');
     }
 
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        User::create([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => bcrypt($request->get('password'))
+        ]);
+
+        $request->session()->flash('status', '¡Registro creado exitosamente!');
+
+        return redirect()->route('users.index');
     }
 
 
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('backend.sections.users.show', compact('user'));
     }
 
 
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('backend.sections.users.edit', compact('user'));
     }
 
 
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, User $user)
     {
-        //
+        $user->update([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => bcrypt($request->get('password'))
+        ]);
+
+        $request->session()->flash('status', '¡Registro actualizado exitosamente!');
+
+        return redirect()->route('users.index');
     }
 
 
-    public function destroy($id)
+    public function destroy(User $user, Request $request)
     {
-        //
+        $user->delete();
+
+        $request->session()->flash('status', '¡Registro eliminado exitosamente!');
+
+        return redirect()->route('users.index');
     }
 }

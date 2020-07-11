@@ -55,7 +55,11 @@
         <div class="sidebar-heading">
             Secciones
         </div>
-
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('users.index') }}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Usuarios</span></a>
+        </li>
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
