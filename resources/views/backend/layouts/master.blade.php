@@ -45,7 +45,7 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('backend.home') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Home</span></a>
+                <span>Inicio</span></a>
         </li>
 
         <!-- Divider -->
@@ -53,12 +53,20 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Secciones
+            Administración del sitio
         </div>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('users.index') }}">
                 <i class="fas fa-fw fa-users"></i>
                 <span>Usuarios</span></a>
+        </li>
+        <div class="sidebar-heading">
+            Secciones del sitio
+        </div>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('sliders.index') }}">
+                <i class="fas fa-fw fa-images"></i>
+                <span>Slider</span></a>
         </li>
 
         <!-- Sidebar Toggler (Sidebar) -->

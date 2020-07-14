@@ -184,5 +184,6 @@ return [
         'image'                 => 'imagen',
         'surname'               => 'apellido',
         'customer_id'           => 'cliente',
+        'image_path'            => 'imágen',
     ],
 ];

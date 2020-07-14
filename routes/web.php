@@ -15,6 +15,9 @@ Route::prefix('admin')->middleware('auth')->group(function (){
     Route::get('users/datatable', 'Backend\UserController@datatable')->name('users.datatable');
     Route::resource('users', 'Backend\UserController');
 
+    Route::get('sliders/datatable', 'Backend\SliderController@datatable')->name('sliders.datatable');
+    Route::resource('sliders', 'Backend\SliderController');
+
 
 
 
