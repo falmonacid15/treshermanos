@@ -2,12 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-
 Auth::routes([
     'register' => false
 ]);
-
 
 Route::prefix('admin')->middleware('auth')->group(function (){
     Route::get('/', 'Backend\HomeController@index')->name('backend.home');
@@ -21,7 +18,6 @@ Route::prefix('admin')->middleware('auth')->group(function (){
     Route::get('product-types/datatable', 'Backend\ProductTypeController@datatable')->name('product-types.datatable');
     Route::resource('product-types', 'Backend\ProductTypeController');
 
+    Route::get('information/datatable', 'Backend\InformationController@datatable')->name('information.datatable');
+    Route::resource('information', 'Backend\InformationController');
 });
-
-
-
