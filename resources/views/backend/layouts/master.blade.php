@@ -68,6 +68,11 @@
                 <i class="fas fa-fw fa-images"></i>
                 <span>Slider</span></a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('product-types.index') }}">
+                <i class="fas fa-fw fa-bars"></i>
+                <span>Tipos de Producto</span></a>
+        </li>
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">

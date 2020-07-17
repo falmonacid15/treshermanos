@@ -18,8 +18,8 @@ Route::prefix('admin')->middleware('auth')->group(function (){
     Route::get('sliders/datatable', 'Backend\SliderController@datatable')->name('sliders.datatable');
     Route::resource('sliders', 'Backend\SliderController');
 
-
-
+    Route::get('product-types/datatable', 'Backend\ProductTypeController@datatable')->name('product-types.datatable');
+    Route::resource('product-types', 'Backend\ProductTypeController');
 
 });
 
