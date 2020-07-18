@@ -17,11 +17,11 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Servicios</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">69</div>
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Slider</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $sliderQuantity }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-align-justify fa-2x text-gray-300"></i>
+                                <i class="fas fa-image fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -34,11 +34,11 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Tipos de Propiedad</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">1314</div>
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Galerias</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $galleryQuantity }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-briefcase fa-2x text-gray-300"></i>
+                                <i class="fas fa-images fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -51,11 +51,11 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Propiedades</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">334</div>
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Productos</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $productsQuantity }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-home fa-2x text-gray-300"></i>
+                                <i class="fas fa-cube fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -68,11 +68,11 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Vendedores</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Informacion relevante</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $informationQuantity }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-users fa-2x text-gray-300"></i>
+                                <i class="fas fa-toolbox fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
