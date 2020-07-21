@@ -13,7 +13,7 @@ class ProductTypeController extends Controller
 {
     public function datatable()
     {
-        $productTypes=ProductType::all();
+        $productTypes=ProductType::orderBy('id', 'DESC')->get();
 
         return datatables()
             ->of($productTypes)

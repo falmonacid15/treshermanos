@@ -14,7 +14,7 @@ class InformationController extends Controller
 {
     public function datatable()
     {
-        $information = Information::all();
+        $information = Information::orderBy('id', 'DESC')->get();
 
         return datatables()
             ->of($information)

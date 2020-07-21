@@ -27,7 +27,7 @@ Route::prefix('admin')->middleware('auth')->group(function (){
     Route::get('products/datatable', 'Backend\ProductController@datatable')->name('products.datatable');
     Route::resource('products', 'Backend\ProductController');
 
-    Route::get('galleries/datatable', 'Backend\GalleryControler@datatable')->name('galleries.datatable');
+    Route::get('galleries/datatable', 'Backend\GalleryController@datatable')->name('galleries.datatable');
     Route::resource('galleries', 'Backend\GalleryController');
     Route::get('galleries/delete-file/{id}', 'Backend\GalleryController@deleteFile')->name('galleries.delete-file');
 });

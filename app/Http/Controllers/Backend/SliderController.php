@@ -13,7 +13,7 @@ class SliderController extends Controller
 {
     public function datatable()
     {
-        $sliders=Slider::all();
+        $sliders=Slider::orderBy('id', 'DESC')->get();
 
         return datatables()
             ->of($sliders)

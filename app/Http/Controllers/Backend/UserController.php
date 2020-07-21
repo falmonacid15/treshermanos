@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function datatable()
     {
-        $users=User::all();
+        $users = User::orderBy('id', 'DESC')->get();
 
         return datatables()
             ->of($users)

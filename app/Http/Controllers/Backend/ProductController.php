@@ -15,7 +15,7 @@ class ProductController extends Controller
 {
     public function datatable()
     {
-        $products = Product::with('productType')->get();
+        $products = Product::with('productType')->orderBy('id', 'DESC')->get();
 
         return datatables()
             ->of($products)

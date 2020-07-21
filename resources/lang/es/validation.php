@@ -116,6 +116,7 @@ return [
     'uploaded'    => 'Subir :attribute ha fallado.',
     'url'         => 'El formato :attribute es inválido.',
     'uuid'        => 'El campo :attribute debe ser un UUID válido.',
+    'youtube'     => 'El campo debe ser un link de YouTube válido.',
 
     /*
     |--------------------------------------------------------------------------
@@ -185,5 +186,6 @@ return [
         'surname'               => 'apellido',
         'customer_id'           => 'cliente',
         'image_path'            => 'imágen',
+        'type'                  => 'tipo',
     ],
 ];

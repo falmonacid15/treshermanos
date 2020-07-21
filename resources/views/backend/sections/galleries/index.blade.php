@@ -11,6 +11,16 @@
             </div>
             <div class="card-body">
                 @include('backend.partials.status')
+                @if(request()->has('store-gallery'))
+                    <div class="alert alert-success">
+                        ¡Registro creado exitosamente!
+                    </div>
+                @endif
+                @if(request()->has('update-gallery'))
+                    <div class="alert alert-success">
+                        ¡Registro actualizado exitosamente!
+                    </div>
+                @endif
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered" id="datatable">
                         <thead>

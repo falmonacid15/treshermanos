@@ -9,25 +9,17 @@
                 <h6 class="m-0 font-weight-bold text-primary">Crear Galeria</h6>
             </div>
             <div class="card-body">
-                <form action="{{ route('galleries.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('galleries.store') }}" method="POST" enctype="multipart/form-data" id="form-store">
                     @csrf
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" name="name" id="name" placeholder="Ingrese un nombre" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror">
-                        @error('name')
-                        <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <input type="text" name="name" id="name" placeholder="Ingrese un nombre" class="form-control">
+                        <span class="form-error" id="error_name" style="display:none; width: 100%; margin-top: 0.25rem; font-size: 80%; color: #e74a3b;"></span>
                     </div>
                     <div class="form-group">
                         <label for="description">Descripción</label>
-                        <textarea name="description" id="description" placeholder="Ingrese una descripción" class="form-control @error('description') is-invalid @enderror" rows="2" >{{ old('description') }}</textarea>
-                        @error('description')
-                        <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <textarea name="description" id="description" placeholder="Ingrese una descripción" class="form-control" rows="2" ></textarea>
+                        <span class="form-error" id="error_description" style="display:none; width: 100%; margin-top: 0.25rem; font-size: 80%; color: #e74a3b;"></span>
                     </div>
                     <div class="form-group">
                         <p>Destacado</p>
@@ -50,16 +42,13 @@
                             <input type="radio" name="type" id="type_videos" class="form-check-input" value="Videos">
                             <label for="type_videos">Videos</label>
                         </div>
+                        <span class="form-error" id="error_type" style="display:none; width: 100%; margin-top: 0.25rem; font-size: 80%; color: #e74a3b;"></span>
                     </div>
                     <div id="div_images" style="display: none;">
                         <div class="form-group">
                             <label for="images">Imagenes</label>
                             <input type="file" name="images[]" id="images" class="form-control" multiple>
-                            @error('images')
-                            <span style="width: 100%;margin-top: 0.25rem;font-size: 80%;color: #e74a3b;">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                            <span class="form-error" id="error_images" style="display:none; width: 100%; margin-top: 0.25rem; font-size: 80%; color: #e74a3b;"></span>
                         </div>
                     </div>
                     <div id="div_videos" style="display: none;">
@@ -79,6 +68,29 @@
 
 @section('scripts')
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        })
+    </script>
+
+    <script>
+        var video_count = 0;
+
+        function cleanAndHideErrors() {
+            $('#form-store').find('.form-error').html('');
+            $('#form-store').find('.form-error').hide();
+        }
+
+        function showFormErrors(res) {
+            $.each(res.responseJSON.errors, function (key, value) {
+                var span = document.getElementById('error_' + key);
+                span.innerHTML = '<strong>' + value + '</strong>';
+                span.style.display = 'block';
+            });
+        }
+
         $(function () {
             $('input[name="type"]').change(function () {
                 var type_value = $(this).val();
@@ -86,9 +98,11 @@
                 if (type_value == 'Fotos'){
                     $('#div_images').show(500);
                     $('#div_videos').hide(500);
+                    $('#video_items').html('');
                 } else if (type_value == 'Videos'){
                     $('#div_videos').show(500);
                     $('#div_images').hide(500);
+                    $('#error_images').html('');
                 }
             });
 
@@ -106,11 +120,35 @@
             });
 
             $('#add_video').click(function () {
-                $('#video_items').append('<div class="div-video row" style="margin-top: 10px;"><div class="col-lg-11"><input class="form-control" placeholder="Introduzca link de YouTube" name="videos[]" type="text"></div><div class="col-lg-1"><button type="button" class="btn btn-danger delete-video" title="Eliminar">X</button></div></div>');
+                $('#video_items').append('<div class="div-video row" style="margin-top: 10px;"><div class="col-lg-11"><input class="form-control" placeholder="Introduzca link de YouTube" name="videos[]" type="text"><span class="form-error" id="error_videos.'+video_count+'" style="display:none; width: 100%; margin-top: 0.25rem; font-size: 80%; color: #e74a3b;"></span></div><div class="col-lg-1"><button type="button" class="btn btn-danger btn-block delete-video" title="Eliminar">X</button></div></div>');
+                video_count++;
             });
 
             $('#video_items').on('click', '.delete-video', function () {
                 $(this).closest('.div-video').remove();
+                video_count--;
+            });
+
+            $('#form-store').submit(function (e) {
+                e.preventDefault();
+                cleanAndHideErrors();
+                var formData = new FormData($(this)[0]);
+                var url = $(this).attr('action');
+
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (res) {
+                        cleanAndHideErrors();
+                        window.location.replace('/admin/galleries?store-gallery');
+                    },
+                    error: function (res) {
+                        showFormErrors(res);
+                    }
+                });
             });
         });
     </script>
