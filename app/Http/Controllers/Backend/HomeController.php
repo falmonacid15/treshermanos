@@ -18,7 +18,13 @@ class HomeController extends Controller
         $productsQuantity = Product::count();
         $informationQuantity = Information::count();
         $galleryQuantity = Gallery::count();
-        return view('backend.home', compact('sliderQuantity', 'productsQuantity', 'informationQuantity', 'galleryQuantity'));
+
+        return view('backend.home', compact(
+            'sliderQuantity',
+            'productsQuantity',
+            'informationQuantity',
+            'galleryQuantity')
+        );
     }
 
     public function profileView()
