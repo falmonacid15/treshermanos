@@ -6,6 +6,8 @@ Auth::routes([
     'register' => false
 ]);
 
+Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
+
 Route::prefix('admin')->middleware('auth')->group(function (){
     Route::get('/', 'Backend\HomeController@index')->name('backend.home');
 
@@ -31,3 +33,5 @@ Route::prefix('admin')->middleware('auth')->group(function (){
     Route::resource('galleries', 'Backend\GalleryController');
     Route::get('galleries/delete-file/{id}', 'Backend\GalleryController@deleteFile')->name('galleries.delete-file');
 });
+
+
