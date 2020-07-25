@@ -131,6 +131,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -158,6 +159,7 @@
       <workItem from="1595343304756" duration="598000" />
       <workItem from="1595348000477" duration="674000" />
       <workItem from="1595348773589" duration="7210000" />
+      <workItem from="1595627202359" duration="8077000" />
     </task>
     <servers />
   </component>
@@ -169,5 +171,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="274" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594942665179" />
+    <state x="679" y="155" key="SettingsEditor" timestamp="1595633642536">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="679" y="155" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1595633642536" />
   </component>
 </project>

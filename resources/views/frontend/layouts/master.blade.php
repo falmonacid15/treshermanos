@@ -2,9 +2,9 @@
 <html class="no-js" lang="es">
 
 <head>
-    <title>Tres Hermanos</title>
+    <title>Tres Hermanos | @yield('title', 'Inicio')</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="description" content="">
+    <meta name="description" content="@yield('description', 'Empresa Familiar dedicada a la producción Agrícola y Pecuaria')">
 
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui" />
@@ -23,6 +23,8 @@
     <!-- CSS
     ================================================== -->
     <link rel="stylesheet" href="{{ asset('template/frontend/css/style.min.css') }}" type="text/css">
+
+    @yield('styles')
 
     <!-- Load google font
     ================================================== -->
@@ -60,13 +62,11 @@
 
         <nav id="top-bar__navigation" role="navigation">
             <ul class="nav">
-                <li><a href="#spy-services">Services</a></li>
-                <li><a href="#spy-about">about</a></li>
-                <li><a href="#spy-progress">progress</a></li>
-                <li><a href="#spy-offer">offer</a></li>
-                <li><a href="#spy-gallery">gallery</a></li>
-                <li><a href="#spy-blog">blog</a></li>
-                <li class="li-btn"><a class="custom-btn primary" href="#spy-get-in-touch">Get in touch</a></li>
+                <li><a href="{{ route('frontend.home') }}">Inicio</a></li>
+                <li><a href="{{ route('frontend.products.all') }}">Productos</a></li>
+                <li><a href="{{ route('frontend.about-us') }}">Nosotros</a></li>
+                <li><a href="{{ route('frontend.information.all') }}">Informacion Relevante</a></li>
+                <li class="li-btn"><a class="custom-btn primary" href="{{ route('frontend.contact.form') }}">Contacto</a></li>
             </ul>
         </nav>
     </div>
@@ -75,92 +75,39 @@
 
 @yield('content')
 
-<!-- start footer -->
-<footer id="footer" class="footer--style-3">
+<footer id="footer" class="footer--style-1">
     <div class="footer__inner">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-6">
                     <div class="footer__item">
                         <a class="site-logo" href="index.html">AGRICOM</a>
 
-                        <div class="footer__text">
-                            <p>
-                                <strong>Evulates vast a real proven works discount secure care. Market invigorate a awesome.</strong>
-                            </p>
-
-                            <p>
-                                Odor to yummy high racy bonus soaking mouthwatering. Evulates vast a real proven works discount secure care. Market invigorate a awesome handcrafted bigger comes newer
-                            </p>
-                        </div>
-
-                        <p class="footer__copy">© 2019, Agricom. All rights reserved. Template by <a href="https://themeforest.net/user/artureanec" target="_blank">Artureanec</a></p>
+                        <p class="footer__copy">© {{ \Carbon\Carbon::now()->year }}, Tres Hermanos. Todos los derechos reservados.</p>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-6">
                     <div class="footer__item">
-                        <h3 class="footer__title">QUiCK menu</h3>
+                        <h3 class="footer__title">MENU</h3>
 
                         <div class="row">
                             <div class="col">
                                 <ul class="footer__menu">
-                                    <li><a href="#">Home page</a></li>
-                                    <li><a href="#">About Company</a></li>
-                                    <li><a href="#">Our Team</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Blog Posts</a></li>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Pages</a></li>
+                                    <li><a href="#">Blog</a></li>
                                     <li><a href="#">Contacts</a></li>
                                 </ul>
                             </div>
 
                             <div class="col">
                                 <ul class="footer__menu">
-                                    <li><a href="#">Documentsion</a></li>
-                                    <li><a href="#">Terms of Use</a></li>
-                                    <li><a href="#">Conference</a></li>
-                                    <li><a href="#">Legal Agreement</a></li>
-                                    <li><a href="#">Company Profile</a></li>
-                                    <li><a href="#">Solutions</a></li>
+                                    <li><a href="#">My account</a></li>
+                                    <li><a href="#">Help Desk</a></li>
+                                    <li><a href="#">Support</a></li>
+                                    <li><a href="#">YOur order</a></li>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12 col-lg-4">
-                    <div class="footer__item">
-                        <h3 class="footer__title">Contacts</h3>
-
-                        <div class="company-contacts">
-                            <address>
-                                <p>
-                                    <i class="fontello-location"></i>
-                                    523 Sylvan Ave, 5th Floor Mountain View, CA 94041USA
-                                </p>
-
-                                <p>
-                                    <i class="fontello-phone-call"></i>
-                                    +1 (234) 56789,  +1 987 654 3210
-                                </p>
-
-                                <p>
-                                    <i class="fontello-mail"></i>
-                                    <a href="mailto:support@watchland.com">support@watchland.com</a>
-                                </p>
-                            </address>
-
-                            <div class="social-btns">
-                                <div class="social-btns__inner">
-                                    <a class="fontello-twitter" href="#" target="_blank"></a>
-                                    <a class="fontello-facebook" href="#" target="_blank"></a>
-                                    <a class="fontello-linkedin-squared" href="#" target="_blank"></a>
-                                    <a class="fontello-youtube" href="#" target="_blank"></a>
-                                    <a class="fontello-gplus" href="#" target="_blank"></a>
-                                    <a class="fontello-vimeo" href="#" target="_blank"></a>
-                                    <a class="fontello-vkontakte" href="#" target="_blank"></a>
-                                    <a class="fontello-instagram" href="#" target="_blank"></a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -169,7 +116,6 @@
         </div>
     </div>
 </footer>
-<!-- end footer -->
 
 <div id="btn-to-top-wrap">
     <a id="btn-to-top" class="circled" href="javascript:void(0);" data-visible-offset="1000"></a>
@@ -208,6 +154,7 @@
         };
     });
 </script>
-
+<!-- Custom JS -->
+@yield('scripts')
 </body>
 </html>

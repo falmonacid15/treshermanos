@@ -8,6 +8,17 @@ Auth::routes([
 
 Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
 
+Route::get('/productos', 'Frontend\ProductController@all')->name('frontend.products.all');
+Route::get('/productos/ver/{slug}', 'Frontend\ProductController@show')->name('frontend.products.show');
+
+Route::get('/nosotros', 'Frontend\HomeController@aboutUs')->name('frontend.about-us');
+
+Route::get('/informacion-relevante', 'Frontend\InformationController@all')->name('frontend.information.all');
+Route::get('/informacion-relevante/ver/{slug}', 'Frontend\InformationController@show')->name('frontend.information.show');
+
+Route::get('/contacto', 'Frontend\HomeController@contactForm')->name('frontend.contact.form');
+Route::post('/', 'Frontend\HomeController@contactSend')->name('frontend.contact.send');
+
 Route::prefix('admin')->middleware('auth')->group(function (){
     Route::get('/', 'Backend\HomeController@index')->name('backend.home');
 
@@ -33,5 +44,3 @@ Route::prefix('admin')->middleware('auth')->group(function (){
     Route::resource('galleries', 'Backend\GalleryController');
     Route::get('galleries/delete-file/{id}', 'Backend\GalleryController@deleteFile')->name('galleries.delete-file');
 });
-
-

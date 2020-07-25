@@ -3,21 +3,34 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use App\Models\Slider;
+use App\Models\Information;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
     public function index()
     {
         $slider = Slider::orderBy('id', 'DESC')->take(5)->get();
+        $jsonSlider = $this->makeSliderJson($slider);
+        $information = Information::orderBy('id', 'DESC')->first();
+        $products = Product::orderBy('id', 'DESC')->where('outstanding', true)->take(7)->get();
+        $galleryPhotos = Gallery::orderBy('id', 'DESC')->where('outstanding', true)->where('type', 'Fotos')->take(4)->get();
+        $galleryVideos = Gallery::orderBy('id', 'DESC')->where('outstanding', true)->where('type', 'Videos')->take(3)->get();
 
-        $jsonSlider = [];
+        return view('frontend.home', compact('slider', 'jsonSlider', 'information', 'products', 'galleryPhotos', 'galleryVideos'));
+    }
+
+    private function makeSliderJson($slider)
+    {
+        $json = [];
+
         foreach ($slider as $item){
-            $jsonSlider[] = ['name' => $item->title, 'src' => $item->image_path];
+            $json[] = ['name' => $item->title, 'src' => $item->image_path];
         }
 
-
-        return view('frontend.home', compact('slider', 'jsonSlider'));
+        return $json;
     }
 }
