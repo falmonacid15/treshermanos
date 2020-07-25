@@ -420,114 +420,52 @@
             </div>
         </section>
 
-        <!-- start section -->
-        <a id="spy-gallery" class="ancor"></a>
-        <section class="section  section--no-pt section--no-pb  section-gallery">
-            <!-- start item -->
-            <div class="item" style="background-image: url('{{ asset('template/frontend/img/gall_img/1.jpg') }}');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h2 class="item__title">Sweet Bananas</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end item -->
-
-            <!-- start item -->
-            <div class="item" style="background-image: url('{{ asset('template/frontend/img/gall_img/2.jpg') }}');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h2 class="item__title">Cherry</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end item -->
-
-            <!-- start item -->
-            <div class="item" style="background-image: url('{{ asset('template/frontend/img/gall_img/3.jpg') }}');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h2 class="item__title">Awesome Bilberry</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end item -->
-
-            <!-- start item -->
-            <div class="item" style="background-image: url('{{ asset('template/frontend/img/gall_img/4.jpg') }}');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h2 class="item__title">Awesome Fresh Grape</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end item -->
-        </section>
-        <!-- end section -->
-
-        <section class="section" style="background-color: #fafafa;">
-            <div class="container">
-                <div class="section-heading section-heading--left">
-                    <h2 class="title">Videos</h2>
-                </div>
-
-                <div class="blog blog--style-3">
-                    <div class="blog__inner">
-                        <div class="row no-gutters">
-                            <!-- start item -->
-                            <div class="col-md-6 col-lg-4">
-                                <div class="blog__item">
-                                    <figure>
-                                        <img src="{{ asset('template/frontend/img/blank.gif') }}" style="background-image: url('{{ asset('template/frontend/img/blog_img/3.jpg') }}');" alt="demo">
-                                    </figure>
-
-                                    <div class="blog__entry">
-                                        <h3 class="blog__entry__title  h4"><a href="#">Waxy latest also drink</a></h3>
-                                    </div>
+        @if($galleryPhotos->count())
+            <a id="spy-gallery" class="ancor"></a>
+            <section class="section  section--no-pt section--no-pb  section-gallery">
+                @foreach($galleryPhotos as $item)
+                    <div class="item" style="background-image: url('{{ asset($item->files->first()->path) }}');">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="item__title">{{ $item->name }}</h2>
                                 </div>
                             </div>
-                            <!-- end item -->
+                        </div>
+                    </div>
+                @endforeach
+            </section>
+        @endif
 
-                            <!-- start item -->
-                            <div class="col-md-6 col-lg-4">
-                                <div class="blog__item">
-                                    <figure>
-                                        <img src="{{ asset('template/frontend/img/blank.gif') }}" style="background-image: url('{{ asset('template/frontend/img/blog_img/5.jpg') }}');" alt="demo">
-                                    </figure>
-
-                                    <div class="blog__entry">
-                                        <h3 class="blog__entry__title  h4"><a href="#">Agriculture Products</a></h3>
+        @if($galleryVideos->count())
+            <section class="section" style="background-color: #fafafa;">
+                <div class="container">
+                    <div class="section-heading section-heading--left">
+                        <h2 class="title">Videos</h2>
+                    </div>
+                    <div class="blog blog--style-3">
+                        <div class="blog__inner">
+                            <div class="row no-gutters">
+                                @foreach($galleryVideos as $item)
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="blog__item">
+                                            <figure>
+                                                <a href="#">
+                                                    <img src="{{ asset($item->files->first()->getYoutubeThumbnail()) }}" style="background-image: url('{{ asset('template/frontend/img/blog_img/3.jpg') }}');" alt="demo">
+                                                </a>
+                                            </figure>
+                                            <div class="blog__entry">
+                                                <h3 class="blog__entry__title  h4"><a href="#">{{ $item->name }}</a></h3>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                @endforeach
                             </div>
-                            <!-- end item -->
-
-                            <!-- start item -->
-                            <div class="col-md-6 col-lg-4">
-                                <div class="blog__item">
-                                    <figure>
-                                        <img src="{{ asset('template/frontend/img/blank.gif') }}" style="background-image: url('{{ asset('template/frontend/img/blog_img/6.jpg') }}');" alt="demo">
-                                    </figure>
-
-                                    <div class="blog__entry">
-                                        <h3 class="blog__entry__title  h4"><a href="#">Fruits on Nutrition</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end item -->
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
 
         @if ($information)
             <a id="spy-blog" class="ancor"></a>
@@ -614,7 +552,6 @@
                 </div>
             </div>
         </section>
-        <!-- end section -->
     </main>
 @endsection
 

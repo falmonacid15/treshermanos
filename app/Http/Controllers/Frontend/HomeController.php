@@ -17,8 +17,10 @@ class HomeController extends Controller
         $jsonSlider = $this->makeSliderJson($slider);
         $information = Information::orderBy('id', 'DESC')->first();
         $products = Product::orderBy('id', 'DESC')->where('outstanding', true)->take(7)->get();
-        $galleryPhotos = Gallery::orderBy('id', 'DESC')->where('outstanding', true)->where('type', 'Fotos')->take(4)->get();
-        $galleryVideos = Gallery::orderBy('id', 'DESC')->where('outstanding', true)->where('type', 'Videos')->take(3)->get();
+        $galleryPhotos = Gallery::with('files')->orderBy('id', 'DESC')->where('outstanding', true)->where('type', 'Fotos')->take(4)->get();
+        $galleryVideos = Gallery::with('files')->orderBy('id', 'DESC')->where('outstanding', true)->where('type', 'Videos')->take(3)->get();
+
+
 
         return view('frontend.home', compact('slider', 'jsonSlider', 'information', 'products', 'galleryPhotos', 'galleryVideos'));
     }

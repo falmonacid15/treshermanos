@@ -22,11 +22,19 @@ class File extends Model
         return $this->belongsTo(Gallery::class);
     }
 
-    function getYoutubeEmbedUrl()
+    public function getYoutubeEmbedUrl()
     {
         $urlParts = explode('/', $this->path);
         $videoId = explode('&', str_replace('watch?v=', '', end($urlParts)));
 
         return 'https://www.youtube.com/embed/' . $videoId[0];
+    }
+
+    public function getYoutubeThumbnail()
+    {
+        $urlParts = explode('/', $this->path);
+        $videoId = explode('&', str_replace('watch?v=', '', end($urlParts)));
+
+        return 'https://img.youtube.com/vi/' . $videoId[0] . '/sddefault.jpg';
     }
 }
