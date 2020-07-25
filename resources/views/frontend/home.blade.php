@@ -450,12 +450,16 @@
                                     <div class="col-md-6 col-lg-4">
                                         <div class="blog__item">
                                             <figure>
-                                                <a href="#">
+                                                <a class="gallery__item__description" href="{{ $item->files->first()->getYoutubeEmbedUrl() }}" data-gallery="gall">
                                                     <img src="{{ asset($item->files->first()->getYoutubeThumbnail()) }}" style="background-image: url('{{ asset('template/frontend/img/blog_img/3.jpg') }}');" alt="demo">
                                                 </a>
                                             </figure>
                                             <div class="blog__entry">
-                                                <h3 class="blog__entry__title  h4"><a href="#">{{ $item->name }}</a></h3>
+                                                <h3 class="blog__entry__title  h4">
+                                                    <a class="gallery__item__description" href="{{ $item->files->first()->getYoutubeEmbedUrl() }}" data-gallery="gall">
+                                                        {{ $item->name }}
+                                                    </a>
+                                                </h3>
                                             </div>
                                         </div>
                                     </div>
@@ -502,41 +506,38 @@
                 <div class="row">
                     <div class="col-12 bg-1">
                         <div style="margin: auto; width: 50%;">
-                            <div class="item">
+                            <div class="item" style="margin-bottom: 40px;">
                                 <header class="item__header">
                                     <h2 class="item__title">Contacto</h2>
-
-                                    <p class="item__subtitle">Mega bold action. Sold care wherever less appetizing your far easily</p>
                                 </header>
 
                                 <div class="company-contacts">
                                     <address>
                                         <p>
                                             <i class="fontello-location"></i>
-                                            523 Sylvan Ave, 5th Floor Mountain View, CA 94041USA
+                                            Quillota #175, Oficina #1311, Puerto Montt.
+                                        </p>
+
+                                        <p>
+                                            <i class="fontello-location"></i>
+                                            Fundo Altamira, Llanquihue.
                                         </p>
 
                                         <p>
                                             <i class="fontello-phone-call"></i>
-                                            +1 (234) 56789,  +1 987 654 3210
+                                            +65 2272237
                                         </p>
 
                                         <p>
                                             <i class="fontello-mail"></i>
-                                            <a href="mailto:support@watchland.com">support@watchland.com</a>
+                                            sagricolatreshermanos@gmail.com
                                         </p>
                                     </address>
 
                                     <div class="social-btns">
                                         <div class="social-btns__inner">
-                                            <a class="fontello-twitter" href="#" target="_blank"></a>
-                                            <a class="fontello-facebook" href="#" target="_blank"></a>
-                                            <a class="fontello-linkedin-squared" href="#" target="_blank"></a>
-                                            <a class="fontello-youtube" href="#" target="_blank"></a>
-                                            <a class="fontello-gplus" href="#" target="_blank"></a>
-                                            <a class="fontello-vimeo" href="#" target="_blank"></a>
-                                            <a class="fontello-vkontakte" href="#" target="_blank"></a>
-                                            <a class="fontello-instagram" href="#" target="_blank"></a>
+                                            <a class="fontello-facebook" href="https://www.facebook.com/AgricolaTresHermanos/" target="_blank"></a>
+                                            <a class="fontello-instagram" href="https://www.instagram.com/soc.agricola.tres.hermanos/" target="_blank"></a>
                                         </div>
                                     </div>
                                 </div>

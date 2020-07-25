@@ -2,7 +2,7 @@
 <html class="no-js" lang="es">
 
 <head>
-    <title>Tres Hermanos | @yield('title', 'Inicio')</title>
+    <title>Agrícola Tres Hermanos | @yield('title', 'Inicio')</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="description" content="@yield('description', 'Empresa Familiar dedicada a la producción Agrícola y Pecuaria')">
 
@@ -56,7 +56,7 @@
 <!-- start top bar -->
 <div id="top-bar" class="top-bar--style-3">
     <div class="container">
-        <a id="top-bar__logo" class="site-logo" href="index.html">AGRICOM</a>
+        <a id="top-bar__logo" class="site-logo" href="{{ route('frontend.home') }}">AGRICOM</a>
 
         <a id="top-bar__navigation-toggler" href="javascript:void(0);"><span></span></a>
 
@@ -64,8 +64,9 @@
             <ul class="nav">
                 <li><a href="{{ route('frontend.home') }}">Inicio</a></li>
                 <li><a href="{{ route('frontend.products.all') }}">Productos</a></li>
-                <li><a href="{{ route('frontend.about-us') }}">Nosotros</a></li>
+                <li><a href="{{ route('frontend.galleries.all') }}">Galeria</a></li>
                 <li><a href="{{ route('frontend.information.all') }}">Informacion Relevante</a></li>
+                <li><a href="{{ route('frontend.about-us') }}">Nosotros</a></li>
                 <li class="li-btn"><a class="custom-btn primary" href="{{ route('frontend.contact.form') }}">Contacto</a></li>
             </ul>
         </nav>
@@ -81,7 +82,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-6">
                     <div class="footer__item">
-                        <a class="site-logo" href="index.html">AGRICOM</a>
+                        <a class="site-logo" href="{{ route('frontend.home') }}">AGRICOM</a>
 
                         <p class="footer__copy">© {{ \Carbon\Carbon::now()->year }}, Tres Hermanos. Todos los derechos reservados.</p>
                     </div>
@@ -94,19 +95,17 @@
                         <div class="row">
                             <div class="col">
                                 <ul class="footer__menu">
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Pages</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Contacts</a></li>
+                                    <li><a href="#">Inicio</a></li>
+                                    <li><a href="#">Galeria</a></li>
+                                    <li><a href="#">Nosotros</a></li>
                                 </ul>
                             </div>
 
                             <div class="col">
                                 <ul class="footer__menu">
-                                    <li><a href="#">My account</a></li>
-                                    <li><a href="#">Help Desk</a></li>
-                                    <li><a href="#">Support</a></li>
-                                    <li><a href="#">YOur order</a></li>
+                                    <li><a href="#">Productos</a></li>
+                                    <li><a href="#">Informacion Relevante</a></li>
+                                    <li><a href="#">Contacto</a></li>
                                 </ul>
                             </div>
                         </div>
