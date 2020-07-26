@@ -25,8 +25,20 @@
             <div class="container">
                 <div class="single-content">
                     <h2 class="title">{{ $product->name }}</h2>
-                    <div class="row">
-                        <div class="row flex-lg-row-reverse">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="column">
+                                    <img class="img-fluid" src="{{ asset($product->image_path) }}" alt="demo" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="column">
+                                    <p>
+                                        {{ $product->description }}
+                                    </p>
+                                </div>
+                            </div>
                             <div class="col-lg-4">
                                 <div class="column">
                                     <ul class="details">
@@ -45,18 +57,6 @@
                                             </div>
                                         </li>
                                     </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="column">
-                                    <p>
-                                        {{ $product->description }}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="column">
-                                    <img class="img-fluid" src="{{ asset($product->image_path) }}" alt="demo" />
                                 </div>
                             </div>
                         </div>
