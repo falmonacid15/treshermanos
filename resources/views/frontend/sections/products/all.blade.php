@@ -16,70 +16,74 @@
         </div>
     </header>
 
-    <main role="main">
-        <section class="section">
-            <div class="container">
-                <div class="products" style="margin-bottom: 50px;">
-                    <div class="products__inner">
-                        @foreach ($products as $item)
-                            @if ($loop->iteration % 2 == 0)
-                                <div class="row no-gutters align-items-md-center">
-                                    <!-- start item -->
-                                    <div class="col-md-6">
-                                        <div class="product__item product__item--text">
-                                            <i class="product__item__ico product__item__ico--1"></i>
+    @if ($products->count())
+        <main role="main">
+            <section class="section">
+                <div class="container">
+                    <div class="products" style="margin-bottom: 50px;">
+                        <div class="products__inner">
+                            @foreach ($products as $item)
+                                @if ($loop->iteration % 2 == 0)
+                                    <div class="row no-gutters align-items-md-center">
+                                        <!-- start item -->
+                                        <div class="col-md-6">
+                                            <div class="product__item product__item--text">
+                                                <i class="product__item__ico product__item__ico--1"></i>
 
-                                            <h3 class="product__item__title"><a href="{{ route('frontend.products.show', $item->slug) }}">{{ $item->name }}</a></h3>
+                                                <h3 class="product__item__title"><a href="{{ route('frontend.products.show', $item->slug) }}">{{ $item->name }}</a></h3>
 
-                                            <span class="product_type_span">{{ $item->productType->name }}</span>
+                                                <span class="product_type_span">{{ $item->productType->name }}</span>
 
-                                            <p>
-                                                {{ $item->description }}
-                                            </p>
+                                                <p>
+                                                    {{ $item->description }}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="product__item product__item--image">
+                                                <a href="{{ route('frontend.products.show', $item->slug) }}">
+                                                    <img class="img-fluid" src="{{ asset($item->image_path) }}" alt="{{ $item->name }}" />
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
+                                @else
+                                    <div class="row no-gutters align-items-md-center">
+                                        <div class="col-md-6">
+                                            <div class="product__item product__item--text">
+                                                <i class="product__item__ico product__item__ico--1"></i>
 
-                                    <div class="col-md-6">
-                                        <div class="product__item product__item--image">
-                                            <a href="{{ route('frontend.products.show', $item->slug) }}">
-                                                <img class="img-fluid" src="{{ asset($item->image_path) }}" alt="{{ $item->name }}" />
-                                            </a>
+                                                <h3 class="product__item__title"><a href="{{ route('frontend.products.show', $item->slug) }}">{{ $item->name }}</a></h3>
+
+                                                <span class="product_type_span">{{ $item->productType->name }}</span>
+
+                                                <p>
+                                                    {{ $item->description }}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="product__item product__item--image">
+                                                <a href="{{ route('frontend.products.show', $item->slug) }}">
+                                                    <img class="img-fluid" src="{{ asset($item->image_path) }}" alt="{{ $item->name }}" />
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @else
-                                <div class="row no-gutters align-items-md-center">
-                                    <div class="col-md-6">
-                                        <div class="product__item product__item--text">
-                                            <i class="product__item__ico product__item__ico--1"></i>
-
-                                            <h3 class="product__item__title"><a href="{{ route('frontend.products.show', $item->slug) }}">{{ $item->name }}</a></h3>
-
-                                            <span class="product_type_span">{{ $item->productType->name }}</span>
-
-                                            <p>
-                                                {{ $item->description }}
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="product__item product__item--image">
-                                            <a href="{{ route('frontend.products.show', $item->slug) }}">
-                                                <img class="img-fluid" src="{{ asset($item->image_path) }}" alt="{{ $item->name }}" />
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                        @endforeach
+                                @endif
+                            @endforeach
+                        </div>
                     </div>
-                </div>
 
-                {!! $products->links('vendor.pagination.bootstrap-4') !!}
-            </div>
-        </section>
-    </main>
+                    {!! $products->links('vendor.pagination.bootstrap-4') !!}
+                </div>
+            </section>
+        </main>
+    @else
+        <h3 class="text-center" style="margin-top: 50px; margin-bottom: 50px;">Lo sentimos, aun no tenemos registros :(</h3>
+    @endif
 @endsection
 
 @section('styles')
