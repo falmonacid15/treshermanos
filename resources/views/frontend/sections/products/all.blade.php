@@ -4,6 +4,10 @@
 
 @section('description') Revisa todos nuestros productos @endsection
 
+@section('url') {{ request()->url() }} @endsection
+
+@section('image') {{ asset('template/frontend/img/products.jpg') }} @endsection
+
 @section('content')
     <header class="intro  align-items-center  jarallax" data-speed="0.5" data-img-position="50% 20%" style="background-image: url('{{ asset('template/frontend/img/products.jpg') }}');">
         <div class="pattern" style="opacity: 0.15;"></div>

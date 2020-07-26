@@ -13,6 +13,19 @@
     <meta name="msapplication-navbutton-color" content="#4A8B71" />
     <meta name="apple-mobile-web-app-status-bar-style" content="#4A8B71" />
 
+    <link rel="canonical" href="@yield('url', request()->url())">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Agrícola Tres Hermanos | @yield('title', 'Inicio')">
+    <meta property="og:description" content="@yield('description', 'Empresa Familiar dedicada a la producción Agrícola y Pecuaria')">
+    <meta property="og:url" content="@yield('url', request()->url())">
+    <meta property="og:site_name" content="Agricola Tres Hermanos | Producción Agrícola y Pecuaria">
+    <meta property="og:image" content="@yield('image', asset('template/frontend/img/logo.png'))">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="@yield('description', 'Empresa Familiar dedicada a la producción Agrícola y Pecuaria')">
+    <meta name="twitter:title" content="Agrícola Tres Hermanos | @yield('title', 'Inicio')">
+
+
     <!-- Favicons
     ================================================== -->
     <link rel="shortcut icon" href="{{ asset('template/frontend/img/favicon.ico') }}">
