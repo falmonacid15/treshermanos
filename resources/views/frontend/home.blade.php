@@ -515,7 +515,7 @@
                                     <address>
                                         <p>
                                             <i class="fontello-location"></i>
-                                            Quillota #175, Oficina #1311, Puerto Montt.
+                                            Quillota 175, Oficina #1311, Puerto Montt.
                                         </p>
 
                                         <p>

@@ -20,8 +20,6 @@ class HomeController extends Controller
         $galleryPhotos = Gallery::with('files')->orderBy('id', 'DESC')->where('outstanding', true)->where('type', 'Fotos')->take(4)->get();
         $galleryVideos = Gallery::with('files')->orderBy('id', 'DESC')->where('outstanding', true)->where('type', 'Videos')->take(3)->get();
 
-
-
         return view('frontend.home', compact('slider', 'jsonSlider', 'information', 'products', 'galleryPhotos', 'galleryVideos'));
     }
 
