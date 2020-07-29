@@ -69,7 +69,7 @@
 <!-- start top bar -->
 <div id="top-bar" class="top-bar--style-3">
     <div class="container">
-        <a id="top-bar__logo" class="site-logo" href="{{ route('frontend.home') }}">AGRICOM</a>
+        <a id="top-bar__logo" class="site-logo" href="{{ route('frontend.home') }}" style="background-image: url('{{ asset('template/frontend/img/logo-header.png') }}'); width: 60px; height: 60px">Tres Hermanos</a>
 
         <a id="top-bar__navigation-toggler" href="javascript:void(0);"><span></span></a>
 
@@ -95,7 +95,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-6">
                     <div class="footer__item">
-                        <a class="site-logo" href="{{ route('frontend.home') }}">AGRICOM</a>
+                        <a class="site-logo" href="{{ route('frontend.home') }}" style="background-image: url('{{ asset('template/frontend/img/logo-footer.png') }}'); width: 300px; height: 90px;">Tres Hermanos</a>
 
                         <p class="footer__copy">© {{ \Carbon\Carbon::now()->year }}, Tres Hermanos. Todos los derechos reservados.</p>
                     </div>
