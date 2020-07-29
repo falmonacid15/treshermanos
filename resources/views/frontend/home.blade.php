@@ -456,9 +456,7 @@
                                             </figure>
                                             <div class="blog__entry">
                                                 <h3 class="blog__entry__title  h4">
-                                                    <a class="gallery__item__description" href="{{ $item->files->first()->getYoutubeEmbedUrl() }}" data-gallery="gall">
-                                                        {{ $item->name }}
-                                                    </a>
+                                                    {{ $item->name }}
                                                 </h3>
                                             </div>
                                         </div>

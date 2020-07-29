@@ -33,4 +33,19 @@ class HomeController extends Controller
 
         return $json;
     }
+
+    public function aboutUs()
+    {
+        return view('frontend.about-us');
+    }
+
+    public function contactForm()
+    {
+        return view('frontend.contact');
+    }
+
+    public function contactSend(Request $request)
+    {
+
+    }
 }

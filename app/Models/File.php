@@ -35,6 +35,6 @@ class File extends Model
         $urlParts = explode('/', $this->path);
         $videoId = explode('&', str_replace('watch?v=', '', end($urlParts)));
 
-        return 'https://img.youtube.com/vi/' . $videoId[0] . '/sddefault.jpg';
+        return 'https://img.youtube.com/vi/' . $videoId[0] . '/maxresdefault.jpg';
     }
 }
