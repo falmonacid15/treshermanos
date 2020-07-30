@@ -25,7 +25,7 @@
     @if($galleries->count())
         @foreach($galleries as $item)
             <a id="spy-offer" class="ancor"></a>
-            <section class="section section--screen section--background section-banner" style=" @if($item->type == 'Fotos') background-image: url('{{ asset($item->files->first()->path)  }}'); @else background-image: url('{{ asset($item->files->first()->getYoutubeThumbnail())  }}'); @endif">
+            <section class="section section--screen section--background section-banner" style="@if($item->type == 'Fotos') background-image: url('{{ asset($item->files->first()->path)  }}'); @else background-image: url('{{ asset($item->files->first()->getYoutubeThumbnail())  }}'); @endif">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 col-xl-6">
@@ -47,7 +47,4 @@
     @else
         <h3 class="text-center" style="margin-top: 50px; margin-bottom: 50px;">Lo sentimos, aun no tenemos registros :(</h3>
     @endif
-
 @endsection
-
-

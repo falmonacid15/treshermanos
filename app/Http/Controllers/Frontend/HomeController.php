@@ -46,6 +46,14 @@ class HomeController extends Controller
 
     public function contactSend(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
+        ]);
 
+        // send mail
+
+        // return json response
     }
 }

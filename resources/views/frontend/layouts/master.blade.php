@@ -25,22 +25,15 @@
     <meta name="twitter:description" content="@yield('description', 'Empresa Familiar dedicada a la producción Agrícola y Pecuaria')">
     <meta name="twitter:title" content="Agrícola Tres Hermanos | @yield('title', 'Inicio')">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
-    <!-- Favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="{{ asset('template/frontend/img/favicon.ico') }}">
-    <link rel="apple-touch-icon" href="{{ asset('template/frontend/img/apple-touch-icon.png') }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('template/frontend/img/apple-touch-icon-72x72.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('template/frontend/img/apple-touch-icon-114x114.png') }}">
-
-    <!-- CSS
-    ================================================== -->
+    <!-- CSS  -->
     <link rel="stylesheet" href="{{ asset('template/frontend/css/style.min.css') }}" type="text/css">
 
     @yield('styles')
 
-    <!-- Load google font
-    ================================================== -->
+    <!-- Load google font -->
     <script type="text/javascript">
         WebFontConfig = {
             google: { families: [ 'Poppins:300,400,500,600,700', 'Raleway:400,400i,500,500i,700,700i'] }
@@ -56,8 +49,7 @@
         })();
     </script>
 
-    <!-- Load other scripts
-    ================================================== -->
+    <!-- Load other scripts -->
     <script type="text/javascript">
         var _html = document.documentElement;
         _html.className = _html.className.replace("no-js","js");
@@ -95,9 +87,9 @@
             <div class="row">
                 <div class="col-md-6 col-lg-6">
                     <div class="footer__item">
-                        <a class="site-logo" href="{{ route('frontend.home') }}" style="background-image: url('{{ asset('template/frontend/img/logo-footer.png') }}'); width: 300px; height: 90px;">Tres Hermanos</a>
+                        <a class="site-logo" href="{{ route('frontend.home') }}" style="background-image: url('{{ asset('template/frontend/img/logo-footer.png') }}'); width: 300px; height: 90px;">Agrícola Tres Hermanos</a>
 
-                        <p class="footer__copy">© {{ \Carbon\Carbon::now()->year }}, Tres Hermanos. Todos los derechos reservados.</p>
+                        <p class="footer__copy">© {{ \Carbon\Carbon::now()->year }}, Agrícola Tres Hermanos. Todos los derechos reservados.</p>
                     </div>
                 </div>
 
@@ -108,17 +100,17 @@
                         <div class="row">
                             <div class="col">
                                 <ul class="footer__menu">
-                                    <li><a href="#">Inicio</a></li>
-                                    <li><a href="#">Galeria</a></li>
-                                    <li><a href="#">Nosotros</a></li>
+                                    <li><a href="{{ route('frontend.home') }}">Inicio</a></li>
+                                    <li><a href="{{ route('frontend.galleries.all') }}">Galeria</a></li>
+                                    <li><a href="{{ route('frontend.about-us') }}">Nosotros</a></li>
                                 </ul>
                             </div>
 
                             <div class="col">
                                 <ul class="footer__menu">
-                                    <li><a href="#">Productos</a></li>
-                                    <li><a href="#">Informacion Relevante</a></li>
-                                    <li><a href="#">Contacto</a></li>
+                                    <li><a href="{{ route('frontend.products.all') }}">Productos</a></li>
+                                    <li><a href="{{ route('frontend.information.all') }}">Informacion Relevante</a></li>
+                                    <li><a href="{{ route('frontend.contact.form') }}">Contacto</a></li>
                                 </ul>
                             </div>
                         </div>

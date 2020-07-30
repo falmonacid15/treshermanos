@@ -405,7 +405,7 @@
                                             <figure>
                                                 <img src="{{ asset($item->image_path) }}" style="background-image: url('{{ asset($item->image_path) }}'); width: 120%;" alt="demo" />
 
-                                                <a href="#" class="gallery__item__description">
+                                                <a href="{{ route('frontend.products.show', $item->slug) }}" class="gallery__item__description">
                                                     <span class="gallery__item__title">{{ $item->name }}</span>
                                                     <span class="gallery__item__subtitle">{{ $item->productType->name }}</span>
                                                 </a>
@@ -428,7 +428,9 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-12">
-                                    <h2 class="item__title">{{ $item->name }}</h2>
+                                    <a href="{{ route('frontend.galleries.show', $item->slug) }}" style="text-decoration: none;">
+                                        <h2 class="item__title">{{ $item->name }}</h2>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -565,8 +567,8 @@
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" crossorigin="anonymous"></script>
 
     <script>
-        const lat = '-41.256529';
-        const lng = '-73.126803';
+        const lat = '-41.471057';
+        const lng = '-72.938661';
 
         function addDraggableMarker(map, behavior) {
             var marker = new H.map.Marker({lat: lat, lng: lng}, {
@@ -587,7 +589,7 @@
         var map = new H.Map(document.getElementById('here-map'),
             defaultLayers.raster.satellite.map, {
                 center: {lat: lat, lng: lng},
-                zoom: 14,
+                zoom: 16,
                 pixelRatio: window.devicePixelRatio || 1
             });
 
